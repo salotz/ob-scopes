@@ -1,0 +1,11 @@
+
+#+begin_src scopes :session none
+print "hello"
+print "henlo"
+#+end_src
+
+#+RESULTS:
+: hello
+: henlo
+
+

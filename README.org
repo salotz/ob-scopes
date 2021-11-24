@@ -1,0 +1,42 @@
+* Scopes Org-Babel
+
+Put ~ob-scopes.el~ on your load path or load it in your config.
+
+Then you can either add it to the 
+
+#+begin_src elisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+     (python . t)
+     (shell . t)
+     (emacs-lisp . t)
+     ; etc...
+     (scopes . t)
+   ))
+
+#+end_src
+
+
+Or you can just add it to the list:
+
+#+begin_src elisp
+  (add-to-list 'org-babel-load-languages '(scopes . t))
+#+end_src
+
+
+Doesn't support sessions. You can execute and also export the results.
+
+To stop it from prompting you before each execution put this into your
+config:
+
+#+begin_src elisp
+(defun my-org-confirm-babel-evaluate (lang body)
+  (not
+   (string= lang "scopes")
+   ))
+(setq org-confirm-babel-evaluate #'my-org-confirm-babel-evaluate)
+#+end_src
+
+Of course be wary of executing untrusted code on your computer.
+
