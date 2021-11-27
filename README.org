@@ -40,3 +40,26 @@ config:
 
 Of course be wary of executing untrusted code on your computer.
 
+
+
+** Known Issues
+
+If you have a ~0~ at the end of a block without a newline you will get
+a compilation error e.g.:
+
+#+begin_example
+  ,#+begin_src scopes
+    print 0
+  ,#+end_src
+#+end_example
+
+Just add a newline like:
+
+#+begin_example
+  ,#+begin_src scopes
+    print 0
+    
+  ,#+end_src
+#+end_example
+
+
